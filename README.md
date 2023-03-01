@@ -1,0 +1,2 @@
+# Blurple
+Um design system visando única e exclusivamente padronizar e agilizar o processo de criação de elaboração de UIs para apps Flutter, utilizando-se de tons de roxo como destaque, com interfaces preferivelmente escuras.
