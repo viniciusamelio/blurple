@@ -15,6 +15,7 @@ class BaseButton extends StatelessWidget {
     this.onPressed,
     this.padding,
     this.borderSide,
+    this.size,
   }) : super(key: key);
   final Widget child;
   final double? borderRadius;
@@ -23,12 +24,14 @@ class BaseButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final EdgeInsetsGeometry? padding;
   final BorderSide? borderSide;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
+        fixedSize: MaterialStateProperty.resolveWith((states) => size),
         backgroundColor:
             MaterialStateProperty.resolveWith((states) => backgroundColor),
         splashFactory: InkRipple.splashFactory,
@@ -48,7 +51,7 @@ class BaseButton extends StatelessWidget {
 
   static const _defaultRadius = RadiusTokens.sm;
   static final _defaultBackgroundColor = ColorTokens.concrete;
-  static final _defaultForegroundColor = ColorTokens.greyLighter;
+  static final _defaultForegroundColor = ColorTokens.greyDarker;
   static final _defaultPadding = EdgeInsets.symmetric(
     vertical: Spacings.lg,
     horizontal: Spacings.xl,
@@ -63,6 +66,7 @@ class BaseButton extends StatelessWidget {
     Color? backgroundColor,
     Color? foregroundColor,
     BorderSide? borderSide,
+    TextStyle? textStyle,
   }) =>
       BaseButton(
         borderRadius: borderRadius ?? _defaultRadius,
@@ -74,9 +78,10 @@ class BaseButton extends StatelessWidget {
         child: child ??
             Text(
               text ?? "",
-              style: FontStyles.p2(
-                color: foregroundColor,
-              ),
+              style: textStyle ??
+                  FontStyles.p2(
+                    color: foregroundColor,
+                  ),
             ),
       );
 
@@ -90,29 +95,40 @@ class BaseButton extends StatelessWidget {
     Color? backgroundColor,
     Color? foregroundColor,
     BorderSide? borderSide,
+    TextStyle? textStyle,
   }) =>
       BaseButton(
         borderRadius: borderRadius ?? _defaultRadius,
         backgroundColor: backgroundColor ?? _defaultBackgroundColor,
         foregroundColor: foregroundColor ?? _defaultForegroundColor,
-        padding: padding ?? _defaultPadding,
+        size: labelWidget == null && label == null ? const Size(48, 48) : null,
+        padding: labelWidget != null || label != null
+            ? padding ?? _defaultPadding
+            : EdgeInsets.all(
+                Spacings.sm,
+              ),
         borderSide: borderSide,
         onPressed: onPressed,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            icon,
-            SizedBox(
-              width: SizeTokens.xs,
-            ),
-            labelWidget ??
-                Text(
-                  label ?? "",
-                  style: FontStyles.p2(
-                    color: foregroundColor,
+        child: Visibility(
+          visible: labelWidget != null || label != null,
+          replacement: icon,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              icon,
+              SizedBox(
+                width: SizeTokens.xs,
+              ),
+              labelWidget ??
+                  Text(
+                    label ?? "",
+                    style: textStyle ??
+                        FontStyles.p2(
+                          color: foregroundColor,
+                        ),
                   ),
-                ),
-          ],
+            ],
+          ),
         ),
       );
 }
