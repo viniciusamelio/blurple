@@ -1,6 +1,6 @@
 import 'package:flutter/rendering.dart';
 
-abstract class Radius {
+abstract class RadiusTokens {
   static const double xs = 2;
   static const double sm = 4;
   static const double md = 8;
@@ -9,9 +9,9 @@ abstract class Radius {
 }
 
 abstract class RoundedBorder {
-  static BorderRadius xs = BorderRadius.circular(Radius.xs);
-  static BorderRadius sm = BorderRadius.circular(Radius.sm);
-  static BorderRadius md = BorderRadius.circular(Radius.md);
-  static BorderRadius lg = BorderRadius.circular(Radius.lg);
-  static BorderRadius xl = BorderRadius.circular(Radius.xl);
+  static BorderRadius xs = BorderRadius.circular(RadiusTokens.xs);
+  static BorderRadius sm = BorderRadius.circular(RadiusTokens.sm);
+  static BorderRadius md = BorderRadius.circular(RadiusTokens.md);
+  static BorderRadius lg = BorderRadius.circular(RadiusTokens.lg);
+  static BorderRadius xl = BorderRadius.circular(RadiusTokens.xl);
 }
