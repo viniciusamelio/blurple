@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/widgets.dart';
 
 import 'package:blurple/sizes/font_sizes.dart';
 import 'package:blurple/tokens/color_tokens.dart';
@@ -8,7 +8,7 @@ abstract class FontStyles {
   static const String _emphasisFamily = "Rubik";
 
   static TextStyle p1({
-    required double spacing,
+    double? spacing,
     Color? color,
     FontWeight? weight,
     FontStyle? style,
@@ -23,7 +23,7 @@ abstract class FontStyles {
       );
 
   static TextStyle p2({
-    required double spacing,
+    double? spacing,
     FontWeight? weight,
     Color? color,
     FontStyle? style,
@@ -39,7 +39,7 @@ abstract class FontStyles {
 
   static TextStyle h3({
     required Color color,
-    required double spacing,
+    double? spacing,
     FontWeight? weight,
     FontStyle? style,
   }) =>
@@ -54,7 +54,7 @@ abstract class FontStyles {
 
   static TextStyle h2({
     required Color color,
-    required double spacing,
+    double? spacing,
     FontWeight? weight,
     FontStyle? style,
   }) =>
@@ -69,7 +69,7 @@ abstract class FontStyles {
 
   static TextStyle h1({
     required Color color,
-    required double spacing,
+    double? spacing,
     FontWeight? weight,
     FontStyle? style,
   }) =>
