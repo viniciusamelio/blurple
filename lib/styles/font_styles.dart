@@ -12,9 +12,10 @@ abstract class FontStyles {
     Color? color,
     FontWeight? weight,
     FontStyle? style,
+    String? fontFamily,
   }) =>
       TextStyle(
-        fontFamily: _bodyFamily,
+        fontFamily: fontFamily ?? _bodyFamily,
         color: color ?? ColorTokens.greyDarker,
         letterSpacing: spacing,
         fontSize: FontSizes.xs,
@@ -27,9 +28,10 @@ abstract class FontStyles {
     FontWeight? weight,
     Color? color,
     FontStyle? style,
+    String? fontFamily,
   }) =>
       TextStyle(
-        fontFamily: _bodyFamily,
+        fontFamily: fontFamily ?? _bodyFamily,
         color: color ?? ColorTokens.greyDarker,
         letterSpacing: spacing,
         fontSize: FontSizes.sm,
@@ -42,9 +44,10 @@ abstract class FontStyles {
     double? spacing,
     FontWeight? weight,
     FontStyle? style,
+    String? fontFamily,
   }) =>
       TextStyle(
-        fontFamily: _emphasisFamily,
+        fontFamily: fontFamily ?? _emphasisFamily,
         color: color,
         letterSpacing: spacing,
         fontSize: FontSizes.md,
@@ -57,9 +60,10 @@ abstract class FontStyles {
     double? spacing,
     FontWeight? weight,
     FontStyle? style,
+    String? fontFamily,
   }) =>
       TextStyle(
-        fontFamily: _emphasisFamily,
+        fontFamily: fontFamily ?? _emphasisFamily,
         color: color,
         letterSpacing: spacing,
         fontSize: FontSizes.lg,
@@ -72,9 +76,10 @@ abstract class FontStyles {
     double? spacing,
     FontWeight? weight,
     FontStyle? style,
+    String? fontFamily,
   }) =>
       TextStyle(
-        fontFamily: _emphasisFamily,
+        fontFamily: fontFamily ?? _emphasisFamily,
         color: color,
         letterSpacing: spacing,
         fontSize: FontSizes.xl,

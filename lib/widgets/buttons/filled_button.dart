@@ -2,7 +2,6 @@ import 'package:blurple/sizes/radius.dart';
 import 'package:blurple/sizes/spacings.dart';
 import 'package:blurple/styles/font_styles.dart';
 import 'package:blurple/tokens/color_tokens.dart';
-import 'package:blurple/tokens/size_tokens.dart';
 import 'package:flutter/material.dart';
 
 class BaseButton extends StatelessWidget {
