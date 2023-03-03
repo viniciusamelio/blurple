@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import '../../sizes/spacings.dart';
+
 abstract class BlurpleSpacingScheme {
   const BlurpleSpacingScheme({
     required this.buttonPadding,
@@ -17,6 +19,8 @@ abstract class BlurpleSpacingScheme {
   final EdgeInsetsGeometry inputPadding;
   final double verticalSpacing;
   final double horizontalSpacing;
+
+  factory BlurpleSpacingScheme.defaultScheme() => DefaultSpacingScheme();
 
   @override
   bool operator ==(covariant BlurpleSpacingScheme other) {
@@ -39,4 +43,27 @@ abstract class BlurpleSpacingScheme {
         verticalSpacing.hashCode ^
         horizontalSpacing.hashCode;
   }
+}
+
+class DefaultSpacingScheme extends BlurpleSpacingScheme {
+  DefaultSpacingScheme()
+      : super(
+          buttonPadding: EdgeInsets.symmetric(
+            vertical: Spacings.lg,
+            horizontal: Spacings.xl,
+          ),
+          iconButtonPadding: EdgeInsets.all(
+            Spacings.sm,
+          ),
+          elevatedPadding: EdgeInsets.all(
+            Spacings.sm,
+          ),
+          inputPadding: EdgeInsets.symmetric(
+            vertical: Spacings.lg,
+            horizontal: Spacings.md,
+          ),
+          verticalSpacing: Spacings.sm,
+          horizontalSpacing: Spacings.sm,
+          iconButtonSize: const Size(48, 48),
+        );
 }

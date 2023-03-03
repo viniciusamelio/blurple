@@ -11,6 +11,17 @@ class BlurpleThemeData extends InheritedWidget {
     required super.child,
   });
 
+  factory BlurpleThemeData.defaultTheme({
+    required Widget child,
+  }) =>
+      BlurpleThemeData(
+        key: const Key("BlurpleDefaultTheme"),
+        colorScheme: BlurpleColorScheme.defaultScheme(),
+        spacingScheme: BlurpleSpacingScheme.defaultScheme(),
+        fontScheme: BlurpleFontScheme.defaultScheme(),
+        child: child,
+      );
+
   final BlurpleColorScheme colorScheme;
   final BlurpleSpacingScheme spacingScheme;
   final BlurpleFontScheme fontScheme;

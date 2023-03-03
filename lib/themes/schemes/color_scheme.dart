@@ -1,3 +1,4 @@
+import 'package:blurple/tokens/color_tokens.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class BlurpleColorScheme {
@@ -24,6 +25,8 @@ abstract class BlurpleColorScheme {
   final Color overlayElevatedWidgetsColor;
   final Color shadowColor;
   final Color borderColor;
+
+  factory BlurpleColorScheme.defaultScheme() => DefaultColorScheme();
 
   @override
   bool operator ==(covariant BlurpleColorScheme other) {
@@ -54,4 +57,20 @@ abstract class BlurpleColorScheme {
         shadowColor.hashCode ^
         borderColor.hashCode;
   }
+}
+
+class DefaultColorScheme extends BlurpleColorScheme {
+  DefaultColorScheme()
+      : super(
+          accentColor: ColorTokens.blurple,
+          warningColor: ColorTokens.yellow,
+          dangerColor: ColorTokens.red,
+          successColor: ColorTokens.green,
+          backgroundColor: ColorTokens.concreteDarker,
+          infoColor: ColorTokens.blue,
+          elevatedWidgetsColor: ColorTokens.concrete,
+          overlayElevatedWidgetsColor: ColorTokens.shadow,
+          shadowColor: ColorTokens.shadow,
+          borderColor: ColorTokens.greyLighter,
+        );
 }

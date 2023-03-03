@@ -40,7 +40,7 @@ abstract class FontStyles {
       );
 
   static TextStyle h3({
-    required Color color,
+    Color? color,
     double? spacing,
     FontWeight? weight,
     FontStyle? style,
@@ -56,7 +56,7 @@ abstract class FontStyles {
       );
 
   static TextStyle h2({
-    required Color color,
+    Color? color,
     double? spacing,
     FontWeight? weight,
     FontStyle? style,
@@ -72,7 +72,7 @@ abstract class FontStyles {
       );
 
   static TextStyle h1({
-    required Color color,
+    Color? color,
     double? spacing,
     FontWeight? weight,
     FontStyle? style,
