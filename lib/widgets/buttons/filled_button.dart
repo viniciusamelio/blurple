@@ -49,7 +49,7 @@ class BaseButton extends StatelessWidget {
     );
   }
 
-  static const _defaultRadius = RadiusTokens.sm;
+  static const _defaultRadius = RadiusTokens.md;
   static final _defaultBackgroundColor = ColorTokens.concrete;
   static final _defaultForegroundColor = ColorTokens.greyDarker;
   static final _defaultPadding = EdgeInsets.symmetric(
