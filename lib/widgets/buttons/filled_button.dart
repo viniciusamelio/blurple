@@ -117,7 +117,7 @@ class BaseButton extends StatelessWidget {
             children: [
               icon,
               SizedBox(
-                width: SizeTokens.xs,
+                width: Spacings.xs,
               ),
               labelWidget ??
                   Text(
