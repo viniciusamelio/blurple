@@ -29,6 +29,9 @@ class BlurpleThemeData extends InheritedWidget {
   final BlurpleFontScheme fontScheme;
   final BlurpleRadiusScheme radiusScheme;
 
+  static BlurpleThemeData of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<BlurpleThemeData>()!;
+
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
     return this != oldWidget;

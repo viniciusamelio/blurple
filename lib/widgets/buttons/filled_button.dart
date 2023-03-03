@@ -26,8 +26,7 @@ class BaseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme =
-        context.dependOnInheritedWidgetOfExactType<BlurpleThemeData>()!;
+    final theme = BlurpleThemeData.of(context);
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
