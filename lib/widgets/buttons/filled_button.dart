@@ -1,7 +1,6 @@
-import 'package:blurple/sizes/radius.dart';
 import 'package:blurple/sizes/spacings.dart';
 import 'package:blurple/styles/font_styles.dart';
-import 'package:blurple/tokens/color_tokens.dart';
+import 'package:blurple/themes/theme_data.dart';
 import 'package:flutter/material.dart';
 
 class BaseButton extends StatelessWidget {
@@ -27,34 +26,47 @@ class BaseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme =
+        context.dependOnInheritedWidgetOfExactType<BlurpleThemeData>()!;
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        fixedSize: MaterialStateProperty.resolveWith((states) => size),
-        backgroundColor:
-            MaterialStateProperty.resolveWith((states) => backgroundColor),
+        fixedSize: MaterialStateProperty.resolveWith(
+          (states) =>
+              child is! Icon ? size : theme.spacingScheme.iconButtonSize,
+        ),
+        backgroundColor: MaterialStateProperty.resolveWith(
+          (states) => backgroundColor ?? theme.colorScheme.backgroundColor,
+        ),
+        overlayColor: MaterialStateProperty.resolveWith(
+          (states) => theme.colorScheme.accentColor.withOpacity(.1),
+        ),
+        shadowColor: MaterialStateProperty.resolveWith(
+          (states) => theme.colorScheme.shadowColor,
+        ),
         splashFactory: InkRipple.splashFactory,
         side: MaterialStateProperty.resolveWith((states) => borderSide),
-        foregroundColor:
-            MaterialStateProperty.resolveWith((states) => foregroundColor),
+        foregroundColor: MaterialStateProperty.resolveWith(
+          (states) => foregroundColor ?? theme.colorScheme.foregroundColor,
+        ),
         shape: MaterialStateProperty.resolveWith(
           (states) => RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 0),
+            borderRadius: BorderRadius.circular(
+              borderRadius ?? theme.radiusScheme.buttonRadius,
+            ),
           ),
         ),
-        padding: MaterialStateProperty.resolveWith((states) => padding),
+        padding: MaterialStateProperty.resolveWith(
+          (states) =>
+              padding ??
+              (child is! Icon
+                  ? theme.spacingScheme.buttonPadding
+                  : theme.spacingScheme.iconButtonPadding),
+        ),
       ),
       child: child,
     );
   }
-
-  static const _defaultRadius = RadiusTokens.md;
-  static final _defaultBackgroundColor = ColorTokens.concrete;
-  static final _defaultForegroundColor = ColorTokens.greyDarker;
-  static final _defaultPadding = EdgeInsets.symmetric(
-    vertical: Spacings.lg,
-    horizontal: Spacings.xl,
-  );
 
   factory BaseButton.text({
     required VoidCallback onPressed,
@@ -68,10 +80,10 @@ class BaseButton extends StatelessWidget {
     TextStyle? textStyle,
   }) =>
       BaseButton(
-        borderRadius: borderRadius ?? _defaultRadius,
-        backgroundColor: backgroundColor ?? _defaultBackgroundColor,
-        foregroundColor: foregroundColor ?? _defaultForegroundColor,
-        padding: padding ?? _defaultPadding,
+        borderRadius: borderRadius,
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        padding: padding,
         onPressed: onPressed,
         borderSide: borderSide,
         child: child ??
@@ -97,15 +109,10 @@ class BaseButton extends StatelessWidget {
     TextStyle? textStyle,
   }) =>
       BaseButton(
-        borderRadius: borderRadius ?? _defaultRadius,
-        backgroundColor: backgroundColor ?? _defaultBackgroundColor,
-        foregroundColor: foregroundColor ?? _defaultForegroundColor,
-        size: labelWidget == null && label == null ? const Size(48, 48) : null,
-        padding: labelWidget != null || label != null
-            ? padding ?? _defaultPadding
-            : EdgeInsets.all(
-                Spacings.sm,
-              ),
+        borderRadius: borderRadius,
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        padding: padding,
         borderSide: borderSide,
         onPressed: onPressed,
         child: Visibility(

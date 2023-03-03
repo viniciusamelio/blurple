@@ -8,6 +8,7 @@ class BlurpleThemeData extends InheritedWidget {
     required this.colorScheme,
     required this.spacingScheme,
     required this.fontScheme,
+    required this.radiusScheme,
     required super.child,
   });
 
@@ -19,12 +20,14 @@ class BlurpleThemeData extends InheritedWidget {
         colorScheme: BlurpleColorScheme.defaultScheme(),
         spacingScheme: BlurpleSpacingScheme.defaultScheme(),
         fontScheme: BlurpleFontScheme.defaultScheme(),
+        radiusScheme: BlurpleRadiusScheme.defaultScheme(),
         child: child,
       );
 
   final BlurpleColorScheme colorScheme;
   final BlurpleSpacingScheme spacingScheme;
   final BlurpleFontScheme fontScheme;
+  final BlurpleRadiusScheme radiusScheme;
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
