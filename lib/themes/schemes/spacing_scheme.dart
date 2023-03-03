@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 
 abstract class BlurpleSpacingScheme {
   const BlurpleSpacingScheme({
@@ -7,11 +8,13 @@ abstract class BlurpleSpacingScheme {
     required this.inputPadding,
     required this.verticalSpacing,
     required this.horizontalSpacing,
+    required this.iconButtonSize,
   });
-  final double buttonPadding;
-  final double iconButtonPadding;
-  final double elevatedPadding;
-  final double inputPadding;
+  final EdgeInsetsGeometry buttonPadding;
+  final EdgeInsetsGeometry iconButtonPadding;
+  final Size iconButtonSize;
+  final EdgeInsetsGeometry elevatedPadding;
+  final EdgeInsetsGeometry inputPadding;
   final double verticalSpacing;
   final double horizontalSpacing;
 
