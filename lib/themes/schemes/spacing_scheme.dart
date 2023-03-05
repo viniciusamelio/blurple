@@ -49,14 +49,14 @@ class DefaultSpacingScheme extends BlurpleSpacingScheme {
   DefaultSpacingScheme()
       : super(
           buttonPadding: EdgeInsets.symmetric(
-            vertical: Spacings.lg,
-            horizontal: Spacings.xl,
+            vertical: Spacings.xl,
+            horizontal: Spacings.xxl,
           ),
           iconButtonPadding: EdgeInsets.all(
             Spacings.sm,
           ),
           elevatedPadding: EdgeInsets.all(
-            Spacings.sm,
+            Spacings.xl,
           ),
           inputPadding: EdgeInsets.symmetric(
             vertical: Spacings.lg,

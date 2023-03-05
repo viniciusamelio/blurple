@@ -18,7 +18,7 @@ class DefaultRadiusScheme extends BlurpleRadiusScheme {
   DefaultRadiusScheme()
       : super(
           buttonRadius: RadiusTokens.md,
-          elevatedRadius: RadiusTokens.md,
-          sheetRadius: RadiusTokens.md,
+          elevatedRadius: RadiusTokens.xxl,
+          sheetRadius: RadiusTokens.xxl,
         );
 }

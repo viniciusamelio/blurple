@@ -6,6 +6,7 @@ abstract class RadiusTokens {
   static const double md = 8;
   static const double lg = 12;
   static const double xl = 16;
+  static const double xxl = 20;
 }
 
 abstract class RoundedBorder {
