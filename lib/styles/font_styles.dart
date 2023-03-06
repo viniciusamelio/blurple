@@ -48,7 +48,7 @@ abstract class FontStyles {
   }) =>
       TextStyle(
         fontFamily: fontFamily ?? _emphasisFamily,
-        color: color,
+        color: color ?? ColorTokens.blurple,
         letterSpacing: spacing,
         fontSize: FontSizes.md,
         fontWeight: weight ?? FontWeight.w600,
@@ -64,7 +64,7 @@ abstract class FontStyles {
   }) =>
       TextStyle(
         fontFamily: fontFamily ?? _emphasisFamily,
-        color: color,
+        color: color ?? ColorTokens.blurple,
         letterSpacing: spacing,
         fontSize: FontSizes.lg,
         fontWeight: weight ?? FontWeight.w600,
@@ -80,7 +80,7 @@ abstract class FontStyles {
   }) =>
       TextStyle(
         fontFamily: fontFamily ?? _emphasisFamily,
-        color: color,
+        color: color ?? ColorTokens.blurple,
         letterSpacing: spacing,
         fontSize: FontSizes.xl,
         fontWeight: weight ?? FontWeight.w600,
