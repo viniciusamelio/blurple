@@ -1,5 +1,4 @@
 import 'package:blurple/widgets/tab/tab_item.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class BlurpleTabBar extends StatefulWidget {
@@ -26,7 +25,7 @@ class _BlurpleTabState extends State<BlurpleTabBar> {
   List<DefaultTabItem> get items => widget.items;
   void Function(int index)? get onChangeActive => widget.onChangeActive;
 
-  final ValueListenable<int> _activeIndex = ValueNotifier(0);
+  final ValueNotifier<int> _activeIndex = ValueNotifier(0);
 
   @override
   void initState() {
@@ -45,12 +44,19 @@ class _BlurpleTabState extends State<BlurpleTabBar> {
       builder: (context, index, _) {
         final rebuiltItems = items
             .map<Widget>(
-              (e) => DefaultTabItem(
-                isActive: index == items.indexOf(e),
-                key: e.key,
-                activeAccentColor: e.activeAccentColor,
-                inactiveChild: e.inactiveChild,
-                child: e.child,
+              (e) => Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    _activeIndex.value = items.indexOf(e);
+                  },
+                  child: DefaultTabItem(
+                    isActive: index == items.indexOf(e),
+                    key: e.key,
+                    activeAccentColor: e.activeAccentColor,
+                    inactiveChild: e.inactiveChild,
+                    child: e.child,
+                  ),
+                ),
               ),
             )
             .toList();

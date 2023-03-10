@@ -37,6 +37,7 @@ class DefaultTabItem extends StatelessWidget {
             visible: isActive,
             child: Container(
               width: MediaQuery.of(context).size.width,
+              height: 2,
               decoration: BoxDecoration(
                 borderRadius:
                     BorderRadius.circular(theme.radiusScheme.elevatedRadius),
