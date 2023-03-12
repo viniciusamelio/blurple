@@ -12,8 +12,12 @@ abstract class BlurpleFontScheme {
     required TextStyle h3,
     required TextStyle p1,
     required TextStyle p2,
+    required TextStyle input,
   }) {
     this.buttonLabel = buttonLabel.copyWith(
+      fontFamily: bodyFontFamily,
+    );
+    this.input = input.copyWith(
       fontFamily: bodyFontFamily,
     );
     this.elevatedWidgets = elevatedWidgets.copyWith(
@@ -45,6 +49,7 @@ abstract class BlurpleFontScheme {
   late final TextStyle h3;
   late final TextStyle p1;
   late final TextStyle p2;
+  late final TextStyle input;
 
   factory BlurpleFontScheme.defaultScheme() => DefaultFontScheme();
 
@@ -89,5 +94,6 @@ class DefaultFontScheme extends BlurpleFontScheme {
           p1: FontStyles.p1(),
           p2: FontStyles.p2(),
           buttonLabel: FontStyles.p2(),
+          input: FontStyles.input(),
         );
 }

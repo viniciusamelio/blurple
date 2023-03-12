@@ -7,6 +7,22 @@ abstract class FontStyles {
   static const String _bodyFamily = "Rubik";
   static const String _emphasisFamily = "Rubik";
 
+  static TextStyle input({
+    double? spacing,
+    Color? color,
+    FontWeight? weight,
+    FontStyle? style,
+    String? fontFamily,
+  }) =>
+      TextStyle(
+        fontFamily: fontFamily ?? _bodyFamily,
+        color: color ?? ColorTokens.greyDarker,
+        fontStyle: style,
+        fontSize: FontSizes.sm,
+        fontWeight: weight ?? FontWeight.w400,
+        letterSpacing: spacing,
+      );
+
   static TextStyle p1({
     double? spacing,
     Color? color,
