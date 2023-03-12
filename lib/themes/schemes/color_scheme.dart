@@ -14,6 +14,8 @@ abstract class BlurpleColorScheme {
     required this.overlayElevatedWidgetsColor,
     required this.shadowColor,
     required this.borderColor,
+    required this.inputBackgroundColor,
+    required this.inputForegroundColor,
   });
 
   final Color accentColor;
@@ -27,6 +29,8 @@ abstract class BlurpleColorScheme {
   final Color overlayElevatedWidgetsColor;
   final Color shadowColor;
   final Color borderColor;
+  final Color inputBackgroundColor;
+  final Color inputForegroundColor;
 
   factory BlurpleColorScheme.defaultScheme() => DefaultColorScheme();
 
@@ -75,5 +79,7 @@ class DefaultColorScheme extends BlurpleColorScheme {
           shadowColor: ColorTokens.shadow,
           borderColor: ColorTokens.greyLighter,
           foregroundColor: ColorTokens.greyLighter,
+          inputBackgroundColor: ColorTokens.shadow,
+          inputForegroundColor: ColorTokens.greyDarker,
         );
 }
