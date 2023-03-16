@@ -13,11 +13,16 @@ class BorderedIconButton extends StatelessWidget {
     this.borderSide,
     this.textStyle,
     this.labelWidget,
+    this.preffixIcon,
+    this.suffixIcon,
     required this.onPressed,
-    required this.child,
-  });
+  }) : assert(
+          preffixIcon != null || suffixIcon != null,
+          "Either preffix or suffix icon should be set",
+        );
 
-  final Widget child;
+  final Widget? preffixIcon;
+  final Widget? suffixIcon;
   final String? text;
   final Text? labelWidget;
   final double? borderRadius;
@@ -44,7 +49,8 @@ class BorderedIconButton extends StatelessWidget {
       label: text,
       textStyle: textStyle,
       labelWidget: labelWidget,
-      icon: child,
+      icon: preffixIcon,
+      suffixIcon: suffixIcon,
     );
   }
 }

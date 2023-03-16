@@ -97,7 +97,8 @@ class BaseButton extends StatelessWidget {
 
   factory BaseButton.icon({
     required VoidCallback onPressed,
-    required Widget icon,
+    Widget? icon,
+    Widget? suffixIcon,
     Widget? labelWidget,
     String? label,
     double? borderRadius,
@@ -116,11 +117,11 @@ class BaseButton extends StatelessWidget {
         onPressed: onPressed,
         child: Visibility(
           visible: labelWidget != null || label != null,
-          replacement: icon,
+          replacement: icon ?? const SizedBox.shrink(),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              icon,
+              icon ?? const SizedBox.shrink(),
               SizedBox(
                 width: Spacings.xs,
               ),
@@ -132,6 +133,18 @@ class BaseButton extends StatelessWidget {
                           color: foregroundColor,
                         ),
                   ),
+              Visibility(
+                visible: suffixIcon != null,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: Spacings.xs,
+                    ),
+                    suffixIcon ?? const SizedBox.shrink(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
