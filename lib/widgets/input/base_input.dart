@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:blurple/sizes/spacings.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blurple/themes/theme_data.dart';
@@ -126,6 +127,57 @@ class BaseInput extends StatelessWidget {
         contentPadding: contentPadding ?? theme.spacingScheme.inputPadding,
       ),
       style: inputStyle ?? theme.fontScheme.input,
+    );
+  }
+
+  factory BaseInput.large({
+    bool? obscureText,
+    String? label,
+    TextStyle? labelStyle,
+    Widget? suffixIcon,
+    Widget? preffixIcon,
+    void Function(String? value)? onSaved,
+    VoidCallback? onTap,
+    TextInputType? type,
+    bool? readOnly,
+    bool? enabled,
+    TextStyle? inputStyle,
+    Color? cursorColor,
+    String? Function(String? value)? validator,
+    String? hintText,
+    TextStyle? hintStyle,
+    Color? fillColor,
+    TextCapitalization? textCapitalization,
+    TextEditingController? controller,
+    FocusNode? focusNode,
+    List<TextInputFormatter>? inputFormatters,
+    void Function(String)? onFieldSubmitted,
+  }) {
+    return BaseInput(
+      label: label,
+      labelStyle: labelStyle,
+      obscureText: obscureText,
+      suffixIcon: suffixIcon,
+      preffixIcon: preffixIcon,
+      onSaved: onSaved,
+      onFieldSubmitted: onFieldSubmitted,
+      onTap: onTap,
+      readOnly: readOnly,
+      cursorColor: cursorColor,
+      validator: validator,
+      hintStyle: hintStyle,
+      fillColor: fillColor,
+      textCapitalization: textCapitalization,
+      controller: controller,
+      focusNode: focusNode,
+      inputFormatters: inputFormatters,
+      enabled: enabled,
+      hintText: hintText,
+      inputStyle: inputStyle,
+      contentPadding: EdgeInsets.symmetric(
+        vertical: Spacings.xxl,
+        horizontal: Spacings.md,
+      ),
     );
   }
 }
