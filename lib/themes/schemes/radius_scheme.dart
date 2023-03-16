@@ -6,6 +6,7 @@ abstract class BlurpleRadiusScheme {
     required this.elevatedRadius,
     required this.sheetRadius,
     required this.inputRadius,
+    required this.badgeRadius,
   });
 
   factory BlurpleRadiusScheme.defaultScheme() => DefaultRadiusScheme();
@@ -14,6 +15,7 @@ abstract class BlurpleRadiusScheme {
   final double elevatedRadius;
   final double sheetRadius;
   final double inputRadius;
+  final double badgeRadius;
 }
 
 class DefaultRadiusScheme extends BlurpleRadiusScheme {
@@ -23,5 +25,6 @@ class DefaultRadiusScheme extends BlurpleRadiusScheme {
           elevatedRadius: RadiusTokens.xxl,
           sheetRadius: RadiusTokens.xxl,
           inputRadius: RadiusTokens.sm,
+          badgeRadius: RadiusTokens.xl,
         );
 }

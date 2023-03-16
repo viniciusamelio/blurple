@@ -16,6 +16,7 @@ abstract class BlurpleColorScheme {
     required this.borderColor,
     required this.inputBackgroundColor,
     required this.inputForegroundColor,
+    required this.badgeBackgroundColor,
   });
 
   final Color accentColor;
@@ -31,6 +32,7 @@ abstract class BlurpleColorScheme {
   final Color borderColor;
   final Color inputBackgroundColor;
   final Color inputForegroundColor;
+  final Color badgeBackgroundColor;
 
   factory BlurpleColorScheme.defaultScheme() => DefaultColorScheme();
 
@@ -81,5 +83,6 @@ class DefaultColorScheme extends BlurpleColorScheme {
           foregroundColor: ColorTokens.greyLighter,
           inputBackgroundColor: ColorTokens.shadow,
           inputForegroundColor: ColorTokens.greyDarker,
+          badgeBackgroundColor: ColorTokens.shadow,
         );
 }

@@ -11,12 +11,14 @@ abstract class BlurpleSpacingScheme {
     required this.verticalSpacing,
     required this.horizontalSpacing,
     required this.iconButtonSize,
+    required this.badgePadding,
   });
   final EdgeInsetsGeometry buttonPadding;
   final EdgeInsetsGeometry iconButtonPadding;
   final Size iconButtonSize;
   final EdgeInsetsGeometry elevatedPadding;
   final EdgeInsetsGeometry inputPadding;
+  final EdgeInsetsGeometry badgePadding;
   final double verticalSpacing;
   final double horizontalSpacing;
 
@@ -51,6 +53,10 @@ class DefaultSpacingScheme extends BlurpleSpacingScheme {
           buttonPadding: EdgeInsets.symmetric(
             vertical: Spacings.xl,
             horizontal: Spacings.xxl,
+          ),
+          badgePadding: EdgeInsets.symmetric(
+            vertical: Spacings.xs / 2,
+            horizontal: Spacings.sm,
           ),
           iconButtonPadding: EdgeInsets.all(
             Spacings.sm,
