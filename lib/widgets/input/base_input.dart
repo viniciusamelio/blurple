@@ -30,6 +30,8 @@ class BaseInput extends StatelessWidget {
     this.focusNode,
     this.inputFormatters,
     this.onFieldSubmitted,
+    this.minLines,
+    this.maxLines,
   }) : super(key: key);
 
   final bool? obscureText;
@@ -54,6 +56,8 @@ class BaseInput extends StatelessWidget {
   final FocusNode? focusNode;
   final List<TextInputFormatter>? inputFormatters;
   final void Function(String)? onFieldSubmitted;
+  final int? minLines;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
