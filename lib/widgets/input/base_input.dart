@@ -107,8 +107,8 @@ class BaseInput extends StatelessWidget {
             theme.radiusScheme.inputRadius,
           ),
           borderSide: BorderSide(
-            width: .5,
-            color: ColorTokens.greyLighter,
+            width: .1,
+            color: Color(0XFF383838),
           ),
         ),
         focusedBorder: OutlineInputBorder(
