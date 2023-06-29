@@ -3,6 +3,7 @@ import 'package:blurple/sizes/spacings.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blurple/themes/theme_data.dart';
+import 'package:blurple/tokens/color_tokens.dart';
 import 'package:flutter/services.dart';
 
 class BaseInput extends StatelessWidget {
@@ -108,8 +109,8 @@ class BaseInput extends StatelessWidget {
             theme.radiusScheme.inputRadius,
           ),
           borderSide: BorderSide(
-            width: .5,
-            color: theme.colorScheme.borderColor,
+            width: .1,
+            color: Color(0XFF383838),
           ),
         ),
         focusedBorder: OutlineInputBorder(
