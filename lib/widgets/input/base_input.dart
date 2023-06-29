@@ -70,6 +70,8 @@ class BaseInput extends StatelessWidget {
       focusNode: focusNode,
       onSaved: onSaved,
       keyboardType: type,
+      minLines: minLines,
+      maxLines: maxLines,
       onTap: onTap,
       enabled: enabled,
       validator: validator,
@@ -156,6 +158,8 @@ class BaseInput extends StatelessWidget {
     FocusNode? focusNode,
     List<TextInputFormatter>? inputFormatters,
     void Function(String)? onFieldSubmitted,
+    int? minLines,
+    int? maxLines,
   }) {
     return BaseInput(
       label: label,
@@ -177,6 +181,8 @@ class BaseInput extends StatelessWidget {
       inputFormatters: inputFormatters,
       enabled: enabled,
       hintText: hintText,
+      minLines: minLines,
+      maxLines: maxLines,
       inputStyle: inputStyle,
       contentPadding: EdgeInsets.symmetric(
         vertical: Spacings.xxl,
