@@ -3,7 +3,6 @@ import 'package:blurple/sizes/spacings.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blurple/themes/theme_data.dart';
-import 'package:blurple/tokens/color_tokens.dart';
 import 'package:flutter/services.dart';
 
 class BaseInput extends StatelessWidget {
@@ -33,6 +32,8 @@ class BaseInput extends StatelessWidget {
     this.onFieldSubmitted,
     this.minLines,
     this.maxLines,
+    this.onEditingCompleted,
+    this.onChanged,
   }) : super(key: key);
 
   final bool? obscureText;
@@ -42,6 +43,8 @@ class BaseInput extends StatelessWidget {
   final Widget? preffixIcon;
   final EdgeInsetsGeometry? contentPadding;
   final void Function(String? value)? onSaved;
+  final void Function()? onEditingCompleted;
+  final void Function(String)? onChanged;
   final VoidCallback? onTap;
   final TextInputType? type;
   final bool? readOnly;
@@ -75,6 +78,8 @@ class BaseInput extends StatelessWidget {
       maxLines: maxLines,
       onTap: onTap,
       enabled: enabled,
+      onEditingComplete: onEditingCompleted,
+      onChanged: onChanged,
       validator: validator,
       onFieldSubmitted: onFieldSubmitted,
       readOnly: readOnly ?? false,
@@ -103,12 +108,20 @@ class BaseInput extends StatelessWidget {
               color: theme.colorScheme.inputForegroundColor.withOpacity(.75),
             ),
         filled: true,
-        disabledBorder: InputBorder.none,
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(
+            theme.radiusScheme.inputRadius,
+          ),
+          borderSide: const BorderSide(
+            width: .1,
+            color: Colors.transparent,
+          ),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
             theme.radiusScheme.inputRadius,
           ),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             width: .1,
             color: Color(0XFF383838),
           ),
