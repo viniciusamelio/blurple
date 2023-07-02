@@ -11,6 +11,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
     this.hint,
     this.controller,
     this.direction,
+    this.enabled = true,
     required this.itemBuilder,
     required this.onSuggestionSelected,
     required this.suggestionsCallback,
@@ -19,6 +20,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
   final String? hint;
   final TextEditingController? controller;
   final AxisDirection? direction;
+  final bool enabled;
   final Widget Function(BuildContext context, T value) itemBuilder;
   final void Function(T value) onSuggestionSelected;
   final FutureOr<Iterable<T>> Function(String pattern) suggestionsCallback;
@@ -35,6 +37,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           hintText: hint,
+          enabled: true,
           filled: true,
           contentPadding: theme.spacingScheme.inputPadding,
           labelStyle: theme.fontScheme.input,
@@ -47,6 +50,15 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(
               theme.radiusScheme.inputRadius,
+            ),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              theme.radiusScheme.inputRadius,
+            ),
+            borderSide: const BorderSide(
+              width: .1,
+              color: Colors.transparent,
             ),
           ),
         ),
