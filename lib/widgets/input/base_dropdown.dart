@@ -37,7 +37,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           hintText: hint,
-          enabled: true,
+          enabled: enabled,
           filled: true,
           contentPadding: theme.spacingScheme.inputPadding,
           labelStyle: theme.fontScheme.input,
