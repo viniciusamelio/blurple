@@ -9,6 +9,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
   const BaseSearchableDropdown({
     super.key,
     this.hint,
+    this.controller,
     this.direction,
     required this.itemBuilder,
     required this.onSuggestionSelected,
@@ -16,6 +17,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
   });
 
   final String? hint;
+  final TextEditingController? controller;
   final AxisDirection? direction;
   final Widget Function(BuildContext context, T value) itemBuilder;
   final void Function(T value) onSuggestionSelected;
@@ -29,6 +31,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
       suggestionsCallback: suggestionsCallback,
       direction: direction ?? AxisDirection.down,
       textFieldConfiguration: TextFieldConfiguration(
+        controller: controller,
         decoration: InputDecoration(
           hintText: hint,
           filled: true,
