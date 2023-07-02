@@ -30,6 +30,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
     return TypeAheadField<T>(
       suggestionsCallback: suggestionsCallback,
       direction: direction ?? AxisDirection.down,
+      hideOnEmpty: true,
       textFieldConfiguration: TextFieldConfiguration(
         controller: controller,
         decoration: InputDecoration(
