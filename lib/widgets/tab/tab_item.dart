@@ -31,7 +31,7 @@ class DefaultTabItem extends StatelessWidget {
             child: child,
           ),
           SizedBox(
-            height: SizeTokens.xs,
+            height: SizeTokens.sm,
           ),
           Visibility(
             visible: isActive,

@@ -1,5 +1,6 @@
 import 'package:blurple/widgets/tab/tab_item.dart';
 import 'package:flutter/material.dart';
+import 'package:pressable/pressable.dart';
 
 class BlurpleTabBar extends StatefulWidget {
   const BlurpleTabBar({
@@ -45,8 +46,8 @@ class _BlurpleTabState extends State<BlurpleTabBar> {
         final rebuiltItems = items
             .map<Widget>(
               (e) => Expanded(
-                child: GestureDetector(
-                  onTap: () {
+                child: Pressable.scale(
+                  onPressed: () {
                     _activeIndex.value = items.indexOf(e);
                   },
                   child: DefaultTabItem(
