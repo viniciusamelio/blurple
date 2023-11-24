@@ -34,7 +34,10 @@ abstract class BlurpleColorScheme {
   final Color inputForegroundColor;
   final Color badgeBackgroundColor;
 
-  factory BlurpleColorScheme.defaultScheme() => DefaultColorScheme();
+  factory BlurpleColorScheme.defaultScheme({
+    Color? accentColor,
+  }) =>
+      DefaultColorScheme(accentColor: accentColor);
 
   @override
   bool operator ==(covariant BlurpleColorScheme other) {
@@ -68,9 +71,10 @@ abstract class BlurpleColorScheme {
 }
 
 class DefaultColorScheme extends BlurpleColorScheme {
-  DefaultColorScheme()
-      : super(
-          accentColor: ColorTokens.blurple,
+  DefaultColorScheme({
+    Color? accentColor,
+  }) : super(
+          accentColor: accentColor ?? ColorTokens.blurple,
           warningColor: ColorTokens.yellow,
           dangerColor: ColorTokens.red,
           successColor: ColorTokens.green,
