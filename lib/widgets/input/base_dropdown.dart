@@ -13,6 +13,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
     this.direction,
     this.enabled = true,
     this.suggestionsBoxDecoration,
+    this.textFieldStyle,
     required this.itemBuilder,
     required this.onSuggestionSelected,
     required this.suggestionsCallback,
@@ -26,6 +27,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
   final void Function(T value) onSuggestionSelected;
   final FutureOr<Iterable<T>> Function(String pattern) suggestionsCallback;
   final SuggestionsBoxDecoration? suggestionsBoxDecoration;
+  final TextStyle? textFieldStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class BaseSearchableDropdown<T> extends StatelessWidget {
       hideOnEmpty: true,
       textFieldConfiguration: TextFieldConfiguration(
         controller: controller,
+        style: textFieldStyle ?? theme.fontScheme.input,
         decoration: InputDecoration(
           hintText: hint,
           enabled: enabled,
