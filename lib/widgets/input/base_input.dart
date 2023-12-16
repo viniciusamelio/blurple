@@ -177,6 +177,7 @@ class BaseInput extends StatelessWidget {
     void Function(String)? onFieldSubmitted,
     int? minLines,
     int? maxLines,
+    int? maxLength,
   }) {
     return BaseInput(
       label: label,
@@ -201,6 +202,7 @@ class BaseInput extends StatelessWidget {
       minLines: minLines,
       maxLines: maxLines,
       inputStyle: inputStyle,
+      maxLength: maxLength,
       contentPadding: EdgeInsets.symmetric(
         vertical: Spacings.xxl,
         horizontal: Spacings.md,
