@@ -34,6 +34,7 @@ class BaseInput extends StatelessWidget {
     this.maxLines,
     this.onEditingCompleted,
     this.onChanged,
+    this.maxLength,
   }) : super(key: key);
 
   final bool? obscureText;
@@ -62,6 +63,7 @@ class BaseInput extends StatelessWidget {
   final void Function(String)? onFieldSubmitted;
   final int? minLines;
   final int? maxLines;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +83,7 @@ class BaseInput extends StatelessWidget {
       onEditingComplete: onEditingCompleted,
       onChanged: onChanged,
       validator: validator,
+      maxLength: maxLength,
       onFieldSubmitted: onFieldSubmitted,
       readOnly: readOnly ?? false,
       cursorColor: cursorColor ?? theme.colorScheme.accentColor,
